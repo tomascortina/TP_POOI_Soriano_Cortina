@@ -12,3 +12,4 @@ public class Persona {
         return nombre;
     }
 }
+//hace una clase que tenga nombre id y arrvamp ( un arraylist de ) 

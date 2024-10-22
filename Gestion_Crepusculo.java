@@ -1,12 +1,10 @@
 import java.util.*;
 
 public class Gestion_Crepusculo {
-    public static void main(String[] args) throws Exception{
-        
-    }
 
     public void menu(){
-
+        imprimirMenu();
+        imprimirMenuDeImpresion();
     }
 
     private static void imprimirMenu() {

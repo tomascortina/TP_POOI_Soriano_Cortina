@@ -1,4 +1,4 @@
-public class ClaseHija1 extends ClasePadre{
+public class ClaseHija1 extends Vampiro{
     int atributo4;
     int atributo5;
     int atributo6;
