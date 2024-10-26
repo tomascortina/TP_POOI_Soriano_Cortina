@@ -1,5 +1,3 @@
-package crepusculo;
-
 
 // Clases que extienden de Vampiro
 class RecienConvertido extends Vampiro implements ComerAnimal{

@@ -1,4 +1,4 @@
-package crepusculo;
+
 abstract class Vampiro implements ComerAnimal{
     protected String nombre;
     protected int fuerza;

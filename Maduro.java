@@ -1,4 +1,3 @@
-package crepusculo;
 
 class Maduro extends Vampiro {
     private int experiencia;

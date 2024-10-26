@@ -1,4 +1,4 @@
-package crepusculo;
+
 
 // Clase Animal (alimento para los vampiros)
 class Animal {
