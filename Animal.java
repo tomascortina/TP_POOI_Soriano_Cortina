@@ -1,16 +1,17 @@
-
-
-// Clase Animal (alimento para los vampiros)
-class Animal {
-    private String tipo;
-    private int energia;
+public class Animal {
+    private final String tipo;
+    private final int energia;
 
     public Animal(String tipo, int energia) {
-        this.energia = energia;
         this.tipo = tipo;
+        this.energia = energia;
     }
 
     public String getTipo() {
         return tipo;
+    }
+
+    public int getEnergia() {
+        return energia;
     }
 }
