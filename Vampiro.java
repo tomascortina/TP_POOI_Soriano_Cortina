@@ -1,4 +1,3 @@
-
 abstract class Vampiro implements ComerAnimal{
     protected String nombre;
     protected int fuerza;
@@ -26,9 +25,9 @@ abstract class Vampiro implements ComerAnimal{
         return volturi != null;
     }
 
-
     @Override
     public void comerAnimal(Animal animal) {
+        
         System.out.println("Vampiro comiendo animal");
     }
 
@@ -37,11 +36,19 @@ abstract class Vampiro implements ComerAnimal{
         return "Nombre: " + nombre + ", Fuerza: " + fuerza + ", Velocidad: " + velocidad + ", Hambre: " + hambre + ", Color de Ojos: " + colorOjos;
     }
 
+    public String getNombre(){
+        return nombre;
+    }
+
     public int getFuerza() {
         return fuerza;
     }
 
     public int getVelocidad() {
         return velocidad;
+    }
+
+    public int getHambre() {
+        return hambre;
     }
 }
