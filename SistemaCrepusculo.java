@@ -52,7 +52,7 @@ public class SistemaCrepusculo {
         System.out.print("Seleccione una opción: ");
     }
 
-    private void admitirVampiro() {
+    private void admitirVampiro() {//Esta Funcion Esta Terminada o Casi Terminada, Si Hace Falta Cambios Poner En Commit
         System.out.print("Ingrese el nombre del vampiro: ");
         String nombre = scanner.nextLine();
         System.out.print("Ingrese la fuerza del vampiro: ");
