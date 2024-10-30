@@ -78,22 +78,22 @@ public class SistemaCrepusculo {
     }
 
     private void obtenerVampiroMasApto() {
-    Vampiro vampiroMasApto = null;
-    for (List<Vampiro> clan : clanes) {
-        for (Vampiro vampiro : clan) {
-            if (vampiroMasApto == null || 
-                (vampiro.getFuerza() > vampiroMasApto.getFuerza() && 
-                vampiro.getVelocidad() > vampiroMasApto.getVelocidad() && 
-                vampiro.getHambre() < vampiroMasApto.getHambre())) {
-                    vampiroMasApto = vampiro;
+        Vampiro vampiroMasApto = null;
+        for (List<Vampiro> clan : clanes) {
+            for (Vampiro vampiro : clan) {
+                if (vampiroMasApto == null || 
+                    (vampiro.getFuerza() > vampiroMasApto.getFuerza() && 
+                    vampiro.getVelocidad() > vampiroMasApto.getVelocidad() && 
+                    vampiro.getHambre() < vampiroMasApto.getHambre())) {
+                        vampiroMasApto = vampiro;
+                }
             }
         }
-    }
-    if (vampiroMasApto != null) {
-        System.out.println("El vampiro más apto es: " + vampiroMasApto);
-    } else {
-        System.out.println("No hay vampiros en el sistema.");
-    }
+        if (vampiroMasApto != null) {
+            System.out.println("El vampiro más apto es: " + vampiroMasApto);
+        } else {
+            System.out.println("No hay vampiros en el sistema.");
+        }
     }
 
     // Metodos para validacion de inputs
