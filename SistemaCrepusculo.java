@@ -43,7 +43,14 @@ public class SistemaCrepusculo {
 
     private void admitirVampiro() {
         Vampiro vampiro = crearVampiro();
-        asignarClan(vampiro);
+        boolean esVolturi = ingresoNumeroValidado("¿Es Volturi? (1: Sí, 2: No): ", 1, 2) == 1;
+        if (esVolturi) {
+            // Si es Volturi, se le permite ingresar al clan Volturi
+            ingresarAVolturi(vampiro);
+        } else {
+            // Si no es Volturi, se le asigna a otro clan
+            asignarClan(vampiro);
+        }
     }
 
     private void expulsarVampiro() {
@@ -180,11 +187,11 @@ public class SistemaCrepusculo {
     private void asignarClan(Vampiro vampiro) {
         System.out.println("Seleccione el clan al que desea unirse:\n1. Cullen\n2. Demetrius\n3. Sin Clan\n4. Volturi");
         int opcion = ingresoNumeroValidado("Ingrese su opción: ", 1, 4);
-        if (opcion == 4) {
-            ingresarAVolturi(vampiro);
-        } else {
-            clanes.get(opcion - 1).add(vampiro);
+        while (opcion == 4) {
+            System.out.println("Este vampiro no es Volturi y no puede unirse al clan Volturi.");
+            opcion = ingresoNumeroValidado("Ingrese su opción: ", 1, 4);
         }
+        clanes.get(opcion - 1).add(vampiro);
         System.out.println("Vampiro admitido exitosamente.");
     }
 
