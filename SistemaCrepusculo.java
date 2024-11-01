@@ -135,8 +135,15 @@ public class SistemaCrepusculo {
     private String ingresoStringValidado(String mensaje) {
         System.out.println(mensaje);
         String input;
-        while ((input = scanner.nextLine()).isEmpty()) {
-            System.out.println("Por favor, ingrese un texto.");
+        while (true) {
+            input = scanner.nextLine();
+            if (input.isEmpty()) {
+                System.out.println("Por favor, ingrese un texto.");
+            } else if (input.matches("\\d+")) {
+                System.out.println("El texto no puede ser un número. Intente de nuevo.");
+            } else {
+                break;
+            }
         }
         return input;
     }

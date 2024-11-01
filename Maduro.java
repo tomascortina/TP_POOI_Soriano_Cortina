@@ -8,7 +8,12 @@ class Maduro extends Vampiro {
 
     @Override
     public void comerAnimal(Animal animal) {
-        hambre -= 2 * animal.getEnergia();
+        if(hambre - 2 * animal.getEnergia()<=0){
+            hambre = 0;
+        }
+        else{
+            hambre -= 2 * animal.getEnergia();
+        }
         System.out.println(nombre + " se comió a un " + animal.getTipo() + " y se le restó " + 2 * animal.getEnergia() + " de hambre. Hambre actual: " + hambre);
     }
 

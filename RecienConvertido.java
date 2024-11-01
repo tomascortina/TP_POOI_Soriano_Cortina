@@ -8,7 +8,13 @@ class RecienConvertido extends Vampiro implements ComerAnimal {
 
     @Override
     public void comerAnimal(Animal animal) {
-        hambre -= 3 * animal.getEnergia();
+        if(hambre - 3 * animal.getEnergia()<=0){
+            hambre = 0;
+        }
+        else{
+            hambre -= 3 * animal.getEnergia();
+        }
+        
         System.out.println(nombre + " se comió a un " + animal.getTipo() + " y se le restó " + 3 * animal.getEnergia() + " de hambre. Hambre actual: " + hambre);
     }
 
