@@ -21,13 +21,13 @@ class Maduro extends Vampiro {
 
     @Override
     public void comer() {
-        hambre -= experiencia;  // Come con eficiencia debido a su experiencia
+        hambre -= experiencia; 
         System.out.println(nombre + " usa su experiencia para comer y reducir el hambre de manera efectiva. Hambre actual: " + hambre);
     }
 
     @Override
     public void habilidadEspecial() {
-        fuerza += 15;  // Aumento temporal de fuerza debido a la experiencia en combate
+        fuerza += 15;
         System.out.println(nombre + " usa su experiencia para fortalecerse temporalmente. Fuerza actual: " + fuerza);
     }
 }
