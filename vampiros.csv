@@ -1,4 +1,4 @@
-Tipo de Vampiro,Es Volturi,Clan,Nombre,Fuerza,Velocidad,Hambre,Color de Ojos,Inestabilidad/Experiencia/Estrategia
+Tipo de Vampiro,Es Volturi,Clan,Nombre,Fuerza,Velocidad,Hambre,Color de Ojos,Inestabilidad/Experiencia/Estrategia,Influencia Politica
 1,false,2,Edward,90,85,30,Dorado,90
 2,false,2,Alice,70,95,20,Dorado,50
 3,false,2,Carlisle,80,80,10,Dorado,Estratega
@@ -8,6 +8,6 @@ Tipo de Vampiro,Es Volturi,Clan,Nombre,Fuerza,Velocidad,Hambre,Color de Ojos,Ine
 3,false,4,Heidi,75,80,15,Rojo,Cazadora
 2,false,4,Garrett,70,75,30,Rojo,30
 2,false,4,Riley,65,70,35,Rojo,40
-3,true,1,Victoria,90,95,10,Rojo,Estratega
-1,true,1,Jane,85,80,25,Rojo,60
-1,true,1,Aro,95,70,15,Rojo,100
+3,true,1,Victoria,90,95,10,Rojo,Estratega,200
+1,true,1,Jane,85,80,25,Rojo,60,500
+1,true,1,Aro,95,70,15,Rojo,100,900

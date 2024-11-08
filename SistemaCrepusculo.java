@@ -281,14 +281,10 @@ public class SistemaCrepusculo {
         }
 
         if (esVolturi) {
-            vampiro.setVolturi(new Volturi(generarInfluenciaAleatoria()));
+            vampiro.setVolturi(new Volturi(Integer.parseInt(datos[9])));
         }
 
         return vampiro;
-    }
-
-    private int generarInfluenciaAleatoria() {
-        return (int) (Math.random() * 99999) + 1; // Valor aleatorio entre 1 y 99999
     }
 
     private void asignarClanCSV(Vampiro vampiro, int clan) {
