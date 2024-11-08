@@ -1,10 +1,10 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.4">
   <diagram name="UML_Gestion_Crepusculo" id="tsLqWWN6re34cq2yNOvj">
-    <mxGraphModel dx="1434" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1674" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="pIVNgVgIiddYi_z4mML_-5" value="Habitat Vampirico" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="pIVNgVgIiddYi_z4mML_-5" value="Sistema Crepúsculo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="290" y="40" width="200" height="112" as="geometry" />
         </mxCell>
         <mxCell id="pIVNgVgIiddYi_z4mML_-6" value="- vampiros [ ] : Vampiro" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="pIVNgVgIiddYi_z4mML_-5" vertex="1">
@@ -131,12 +131,6 @@
             <mxPoint x="200" y="499.24" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pIVNgVgIiddYi_z4mML_-42" value="¿Ya se que no todos los vampiros comen animales pero, esto significa que solo algunos vampiros tienen que implementar comer animal y otros no?" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="9" y="799.24" width="810" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="pIVNgVgIiddYi_z4mML_-43" value="¿Es decir que la interfaz comer animal va a afectar solo a alguno de los hijos?" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="160" y="829.24" width="440" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="pIVNgVgIiddYi_z4mML_-48" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1.103;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="pIVNgVgIiddYi_z4mML_-9" target="pIVNgVgIiddYi_z4mML_-8" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="320" y="210" as="sourcePoint" />
@@ -174,15 +168,6 @@
             <mxPoint x="390" y="540" as="sourcePoint" />
             <mxPoint x="540" y="530" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="pNDMgC5wGViX0FNzGAJT-8" value="¿Cada uno de los ints de los hijos modifican partes diferentes de cada clase, esta bien ponerlos como diferentes aunque sean todos ints?" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry y="859.24" width="760" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="IDrDbwOoRNxPUcYOWY2i-1" value="CSV que coincida el codigo con el UML&amp;nbsp; que se impriman los animales" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="60" y="710" width="520" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="IDrDbwOoRNxPUcYOWY2i-2" value="repasar porque modelamos asi, utilizando la teoria" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="441" y="746" width="380" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -27,7 +27,6 @@ public class SistemaCrepusculo {
         } while (opcion != 0);
     }
 
-    // Metodos del el menu
 
     private void procesarOpcion(int opcion) {
         switch (opcion) {
@@ -49,10 +48,8 @@ public class SistemaCrepusculo {
         Vampiro vampiro = crearVampiro();
         boolean esVolturi = ingresoNumeroValidado("¿Es Volturi? (1: Sí, 2: No): ", 1, 2) == 1;
         if (esVolturi) {
-            // Si es Volturi, se le permite ingresar al clan Volturi
             ingresarAVolturi(vampiro);
         } else {
-            // Si no es Volturi, se le asigna a otro clan
             asignarClan(vampiro);
         }
     }
@@ -73,14 +70,23 @@ public class SistemaCrepusculo {
 
     private void comerAnimal() {
         String nombreVampiroHambriento = ingresoStringValidado("Ingrese el nombre del vampiro que va a comer: ");
+        listarAnimales();
         String tipoDeAnimal = ingresoStringValidado("Ingrese el tipo de animal que el vampiro " + nombreVampiroHambriento + " va a comer: ");
         Animal animal = encontrarAnimalPorTipo(tipoDeAnimal);
         Vampiro vampiroHambriento = encontrarVampiroPorNombre(nombreVampiroHambriento);
         vampiroHambriento.comerAnimal(animal);
     }
 
+    private void listarAnimales(){
+        System.out.println("Animales disponibles:");
+        animalesComida.forEach(animal -> {
+            System.out.println("Tipo: " + animal.getTipo() + ", Energía: " + animal.getEnergia());
+        });
+    }
+    
+
     private void listarVampiros() {
-        String[] nombresClanes = {"Clan Cullen", "Clan Demetrius", "Clan Volturi", "Sin Clan"};
+        String[] nombresClanes = {"Clan Demetrius", "Clan Cullen", "Sin Clan", "Clan Volturi"};
         for (int i = 0; i < clanes.size(); i++) {
             System.out.println("Vampiros en el " + nombresClanes[i] + ":");
             List<Vampiro> clan = clanes.get(i);
@@ -106,8 +112,6 @@ public class SistemaCrepusculo {
             System.out.println("No hay vampiros en el sistema.");
         }
     }
-
-    // Metodos para validacion de inputs
 
     private int ingresoNumeroValidado(String mensaje, int limInferior, int limSuperior) {
         int numero;
@@ -152,8 +156,6 @@ public class SistemaCrepusculo {
         return input;
     }
 
-    // Metodos para busqueda de vampiros y animales
-
     private Vampiro encontrarVampiroPorNombre(String nombre) {
         for (List<Vampiro> clan : clanes) {
             for (Vampiro vampiro : clan) {
@@ -173,8 +175,6 @@ public class SistemaCrepusculo {
         }
         return null;
     }
-
-    // Metodos para creacion de vampiros
 
     private Vampiro crearVampiro() {
         String nombre = ingresoStringValidado("Ingrese el nombre del vampiro: ");
@@ -209,14 +209,13 @@ public class SistemaCrepusculo {
     private void ingresarAVolturi(Vampiro vampiro) {
         int influenciaPolitica = ingresoNumeroValidado("Ingrese la influencia política del vampiro: ", 1, 99999);
         vampiro.setVolturi(new Volturi(influenciaPolitica));
-        clanes.get(3).add(vampiro);  // Suponiendo que Volturi es el cuarto clan en la lista
+        clanes.get(3).add(vampiro); 
     }
 
 
-    // Metodos para creacion de animales e inicializacion de clanes
 
     private void cargarAnimalesDesdeCSV() {
-        String archivoCSV = "animales.csv"; // Ruta del archivo CSV
+        String archivoCSV = "animales.csv";
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
             String linea;
@@ -224,7 +223,7 @@ public class SistemaCrepusculo {
 
             while ((linea = br.readLine()) != null) {
                 if (primeraLinea) {
-                    primeraLinea = false; // Omitir la primera línea que contiene los encabezados
+                    primeraLinea = false;
                     continue;
                 }
 
@@ -241,7 +240,7 @@ public class SistemaCrepusculo {
 
 
     private void agregarVariosVampirosCSV() {
-        String archivoCSV = "vampiros.csv"; // Ruta del archivo CSV
+        String archivoCSV = "vampiros.csv";
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
             String linea;
@@ -289,21 +288,19 @@ public class SistemaCrepusculo {
 
     private void asignarClanCSV(Vampiro vampiro, int clan) {
         switch (clan) {
-            case 1 -> cullenClan.add(vampiro);
-            case 2 -> demetriusClan.add(vampiro);
-            case 3 -> volturiClan.add(vampiro);
-            case 4 -> sinClan.add(vampiro);
+            case 1 -> demetriusClan.add(vampiro);
+            case 2 -> cullenClan.add(vampiro);
+            case 3 -> sinClan.add(vampiro);
+            case 4 -> volturiClan.add(vampiro);
             default -> throw new IllegalArgumentException("Clan no válido en el archivo CSV.");
         }
     }
 
 
-    
-
     private void crearClanes(){
         clanes.add(demetriusClan);
-        clanes.add(volturiClan);
         clanes.add(cullenClan);
         clanes.add(sinClan);
+        clanes.add(volturiClan);
     }
 }
