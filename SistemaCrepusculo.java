@@ -1,6 +1,10 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 
 public class SistemaCrepusculo {
     private final Scanner scanner = new Scanner(System.in);
@@ -12,8 +16,8 @@ public class SistemaCrepusculo {
     private final List<Animal> animalesComida = new ArrayList<>();
 
     public void run() {
-        crearAnimales();
-        agregarVariosVampiros();
+        cargarAnimalesDesdeCSV();
+        agregarVariosVampirosCSV();
         crearClanes();
         int opcion;
         do {
@@ -69,7 +73,7 @@ public class SistemaCrepusculo {
 
     private void comerAnimal() {
         String nombreVampiroHambriento = ingresoStringValidado("Ingrese el nombre del vampiro que va a comer: ");
-        String tipoDeAnimal = ingresoStringValidado("Ingrese el tipo de animal que el vampiro" + nombreVampiroHambriento + " va a comer: ");
+        String tipoDeAnimal = ingresoStringValidado("Ingrese el tipo de animal que el vampiro " + nombreVampiroHambriento + " va a comer: ");
         Animal animal = encontrarAnimalPorTipo(tipoDeAnimal);
         Vampiro vampiroHambriento = encontrarVampiroPorNombre(nombreVampiroHambriento);
         vampiroHambriento.comerAnimal(animal);
@@ -211,44 +215,94 @@ public class SistemaCrepusculo {
 
     // Metodos para creacion de animales e inicializacion de clanes
 
-    private void crearAnimales() {
-        animalesComida.add(new Animal("Venado", 80));
-        animalesComida.add(new Animal("Conejo", 30));
-        animalesComida.add(new Animal("Lobo", 70));
-        animalesComida.add(new Animal("Zorro", 50));
-        animalesComida.add(new Animal("Jabalí", 90));
-        animalesComida.add(new Animal("Puma", 100));
-        animalesComida.add(new Animal("Búho", 20));
-        animalesComida.add(new Animal("Águila", 60));
+    private void cargarAnimalesDesdeCSV() {
+        String archivoCSV = "animales.csv"; // Ruta del archivo CSV
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
+            String linea;
+            boolean primeraLinea = true;
+
+            while ((linea = br.readLine()) != null) {
+                if (primeraLinea) {
+                    primeraLinea = false; // Omitir la primera línea que contiene los encabezados
+                    continue;
+                }
+
+                String[] datos = linea.split(",");
+                String nombre = datos[0];
+                int puntajeEnergia = Integer.parseInt(datos[1]);
+
+                animalesComida.add(new Animal(nombre, puntajeEnergia));
+            }
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+        }
     }
 
-    private void agregarVariosVampiros() {
-        Vampiro vampiro1 = new RecienConvertido("Edward", 90, 85, 30, "Dorado", 90);
-        Vampiro vampiro2 = new Maduro("Alice", 70, 95, 20, "Dorado", 50);
-        Vampiro vampiro3 = new Adulto("Carlisle", 80, 80, 10, "Dorado", "Estratega");
-        Vampiro vampiro4 = new RecienConvertido("Jane", 85, 80, 25, "Rojo", 60);
-        Vampiro vampiro5 = new Maduro("Aro", 95, 70, 15, "Rojo", 100);
-        Vampiro vampiro6 = new Adulto("Marcus", 75, 75, 5, "Rojo", "Diplomático");
-        Vampiro vampiro7 = new RecienConvertido("Demetri", 85, 90, 20, "Rojo", 90);
-        Vampiro vampiro8 = new Maduro("Felix", 80, 85, 25, "Rojo", 60);
-        Vampiro vampiro9 = new Adulto("Heidi", 75, 80, 15, "Rojo", "Cazadora");
-        Vampiro vampiro10 = new RecienConvertido("Garrett", 70, 75, 30, "Rojo", 30);
-        Vampiro vampiro11 = new Maduro("Riley", 65, 70, 35, "Rojo", 40);
-        Vampiro vampiro12 = new Adulto("Victoria", 90, 95, 10, "Rojo", "Estratega");
 
-        demetriusClan.add(vampiro7);
-        demetriusClan.add(vampiro8);
-        demetriusClan.add(vampiro9);
-        sinClan.add(vampiro10);
-        sinClan.add(vampiro11);
-        sinClan.add(vampiro12);
-        cullenClan.add(vampiro1);
-        cullenClan.add(vampiro2);
-        cullenClan.add(vampiro3);
-        volturiClan.add(vampiro4);
-        volturiClan.add(vampiro5);
-        volturiClan.add(vampiro6);
+    private void agregarVariosVampirosCSV() {
+        String archivoCSV = "vampiros.csv"; // Ruta del archivo CSV
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivoCSV))) {
+            String linea;
+            boolean primeraLinea = true;
+
+            while ((linea = br.readLine()) != null) {
+                if (primeraLinea) {
+                    primeraLinea = false;
+                    continue;
+                }
+
+                String[] datos = linea.split(",");
+                Vampiro vampiro = crearVampiroCSV(datos);
+                asignarClanCSV(vampiro, Integer.parseInt(datos[2]));
+            }
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+        }
     }
+
+    private Vampiro crearVampiroCSV(String[] datos) {
+        int tipo = Integer.parseInt(datos[0]);
+        boolean esVolturi = Boolean.parseBoolean(datos[1]);
+        String nombre = datos[3];
+        int fuerza = Integer.parseInt(datos[4]);
+        int velocidad = Integer.parseInt(datos[5]);
+        int hambre = Integer.parseInt(datos[6]);
+        String colorOjos = datos[7];
+        String extra = datos[8];
+
+        Vampiro vampiro;
+        switch (tipo) {
+            case 1 -> vampiro = new RecienConvertido(nombre, fuerza, velocidad, hambre, colorOjos, Integer.parseInt(extra));
+            case 2 -> vampiro = new Maduro(nombre, fuerza, velocidad, hambre, colorOjos, Integer.parseInt(extra));
+            case 3 -> vampiro = new Adulto(nombre, fuerza, velocidad, hambre, colorOjos, extra);
+            default -> throw new IllegalArgumentException("Tipo de vampiro no válido.");
+        }
+
+        if (esVolturi) {
+            vampiro.setVolturi(new Volturi(generarInfluenciaAleatoria()));
+        }
+
+        return vampiro;
+    }
+
+    private int generarInfluenciaAleatoria() {
+        return (int) (Math.random() * 99999) + 1; // Valor aleatorio entre 1 y 99999
+    }
+
+    private void asignarClanCSV(Vampiro vampiro, int clan) {
+        switch (clan) {
+            case 1 -> cullenClan.add(vampiro);
+            case 2 -> demetriusClan.add(vampiro);
+            case 3 -> volturiClan.add(vampiro);
+            case 4 -> sinClan.add(vampiro);
+            default -> throw new IllegalArgumentException("Clan no válido en el archivo CSV.");
+        }
+    }
+
+
+    
 
     private void crearClanes(){
         clanes.add(demetriusClan);

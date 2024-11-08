@@ -10,8 +10,10 @@ class Adulto extends Vampiro {
     public void comerAnimal(Animal animal) {
         if(hambre - animal.getEnergia() <= 0){
             hambre = 0;
+            System.out.println("hambre = 0");
         }
         else{
+            System.out.println("hambre > 0");
             hambre -= animal.getEnergia();
         }
         System.out.println(nombre + " se comió a un " + animal.getTipo() + " y se le restó " + animal.getEnergia() + " de hambre. Hambre actual: " + hambre);
