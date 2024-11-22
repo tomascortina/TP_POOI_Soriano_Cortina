@@ -30,4 +30,20 @@ class Adulto extends Vampiro {
         velocidad += 10;  // Incremento de velocidad temporal
         System.out.println(nombre + " usa una estrategia avanzada para moverse rápidamente. Velocidad actual: " + velocidad);
     }
+
+    public void crearEstrategiaAvanzada() {
+        if (estrategia.equals("emboscada")) {
+            velocidad += 15;
+            hambre -= 20; 
+            System.out.println(nombre + " usa una emboscada cuidadosamente planificada para cazar.");
+            System.out.println("Velocidad incrementada a: " + velocidad + " y hambre reducida a: " + hambre);
+        } else if (estrategia.equals("evasión")) {
+            velocidad += 20;
+            fuerza -= 5; 
+            System.out.println(nombre + " opta por evadir enfrentamientos y gana ventaja en velocidad.");
+            System.out.println("Velocidad aumentada a: " + velocidad + ", pero fuerza reducida a: " + fuerza);
+        } else {
+            System.out.println(nombre + " usa una estrategia genérica sin efectos significativos.");
+        }
+    }
 }

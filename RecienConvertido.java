@@ -29,4 +29,15 @@ class RecienConvertido extends Vampiro implements ComerAnimal {
         hambre += inestabilidad;  // Aumento de hambre debido a la inestabilidad
         System.out.println(nombre + " pierde el control y su hambre aumenta debido a un ataque desenfrenado. Hambre actual: " + hambre);
     }
+    public void perderControl() {
+        if (inestabilidad > 5) {
+            hambre += inestabilidad; 
+            fuerza -= 10; 
+            System.out.println(nombre + " pierde el control debido a su inestabilidad. Hambre aumentada a: " + hambre);
+            System.out.println("Por el ataque impulsivo, pierde 10 puntos de fuerza. Fuerza actual: " + fuerza);
+            System.out.println("El entorno sufre daños debido al frenesí del ataque.");
+        } else {
+            System.out.println(nombre + " logra mantener un mínimo de control, aunque sigue siendo inestable.");
+        }
+    }
 }

@@ -30,4 +30,17 @@ class Maduro extends Vampiro {
         fuerza += 15;  // Aumento temporal de fuerza debido a la experiencia en combate
         System.out.println(nombre + " usa su experiencia para fortalecerse temporalmente. Fuerza actual: " + fuerza);
     }
+    public void planificarAtaque() {
+        if (hambre > 10) {
+            int energiaUtilizada = experiencia / 3; 
+            fuerza += energiaUtilizada;
+            velocidad += 5; 
+            hambre -= 10; 
+            System.out.println(nombre + " planifica un ataque cuidadoso, usando su experiencia.");
+            System.out.println("Fuerza aumentada en: " + energiaUtilizada + ", nueva fuerza: " + fuerza);
+            System.out.println("Velocidad incrementada a: " + velocidad + " y hambre reducida a: " + hambre);
+        } else {
+            System.out.println(nombre + " decide conservar energía debido a su bajo nivel de hambre.");
+        }
+    }
 }

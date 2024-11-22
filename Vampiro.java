@@ -27,7 +27,6 @@ abstract class Vampiro implements ComerAnimal{
 
     @Override
     public void comerAnimal(Animal animal) {
-        
         System.out.println("Vampiro comiendo animal");
     }
 

@@ -19,6 +19,7 @@ public class SistemaCrepusculo {
         cargarAnimalesDesdeCSV();
         agregarVariosVampirosCSV();
         crearClanes();
+        
         int opcion = 1;
         while (opcion != 0) {
             printMenu();
@@ -147,8 +148,10 @@ public class SistemaCrepusculo {
             input = scanner.nextLine();
             if (input.isEmpty()) {
                 System.out.println("Por favor, ingrese un texto.");
-            } else if (input.matches("\\d+")) {
-                System.out.println("El texto no puede ser un número. Intente de nuevo.");
+            } else if (input.matches(".*\\d.*")) {
+                System.out.println("El texto no puede contener números. Intente de nuevo.");
+            } else if (input.matches(".*\\W.*")) {
+                System.out.println("El texto no puede contener símbolos. Intente de nuevo.");
             } else {
                 break;
             }
