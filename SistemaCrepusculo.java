@@ -19,12 +19,12 @@ public class SistemaCrepusculo {
         cargarAnimalesDesdeCSV();
         agregarVariosVampirosCSV();
         crearClanes();
-        int opcion;
-        do {
+        int opcion = 1;
+        while (opcion != 0) {
             printMenu();
             opcion = ingresoNumeroValidado("Seleccione una opción: ", 0, 5);
             procesarOpcion(opcion);
-        } while (opcion != 0);
+        }
     }
 
 
