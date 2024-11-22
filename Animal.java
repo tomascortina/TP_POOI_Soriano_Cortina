@@ -1,4 +1,4 @@
-// Clase Animal (alimento para los vampiros)
+
 class Animal {
     private final String tipo;
     private final int energia;

@@ -20,13 +20,13 @@ class RecienConvertido extends Vampiro implements ComerAnimal {
 
     @Override
     public void comer() {
-        hambre -= 10;  // Come de manera menos eficiente
+        hambre -= 10;
         System.out.println(nombre + " intenta calmar su hambre con una caza rápida. Hambre actual: " + hambre);
     }
 
     @Override
     public void habilidadEspecial() {
-        hambre += inestabilidad;  // Aumento de hambre debido a la inestabilidad
+        hambre += inestabilidad; 
         System.out.println(nombre + " pierde el control y su hambre aumenta debido a un ataque desenfrenado. Hambre actual: " + hambre);
     }
     public void perderControl() {

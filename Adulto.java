@@ -21,13 +21,13 @@ class Adulto extends Vampiro {
 
     @Override
     public void comer() {
-        hambre -= 30;  // Come de manera estratégica y eficiente
+        hambre -= 30;
         System.out.println(nombre + " aplica su estrategia" + estrategia + " para reducir el hambre de forma óptima. Hambre actual: " + hambre);
     }
 
     @Override
     public void habilidadEspecial() {
-        velocidad += 10;  // Incremento de velocidad temporal
+        velocidad += 10; 
         System.out.println(nombre + " usa una estrategia avanzada para moverse rápidamente. Velocidad actual: " + velocidad);
     }
 
